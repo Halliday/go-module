@@ -1,0 +1,11 @@
+# This file holds messages used in a module.
+# We will use these messages to report errors and to do basic logging.
+# Each message has an easy name in snake_case format, and some human readable description.
+#
+# This CSV file looks like:
+# name; code; description; link
+
+test;123;This is a test message
+test2;234;This is a another test message
+
+test3;0;Some more tests over here.
