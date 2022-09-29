@@ -69,7 +69,12 @@ type Module struct {
 }
 
 func (m *Module) NewError(name string, args ...interface{}) error {
-	code, desc, link, data, _, causedBy := m.Lookup(name, args...)
+	code, desc, link, tail, _, causedBy := m.Lookup(name, args...)
+	dataMap := denseArgs(nil, tail)
+	var data interface{}
+	if len(dataMap) > 0 {
+		data = m
+	}
 	return errors.NewRich(name, code, desc, link, data, causedBy)
 }
 
