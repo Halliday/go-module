@@ -219,7 +219,7 @@ func (m *Module) Report(err error) {
 	if err == nil {
 		return
 	}
-	r := errors.Rich(err)
+	r := errors.Rich(err).(*errors.RichError)
 	ctx := context.Background()
 	m.log(ctx, Error, r.Name, r.Code, r.Desc, r.Link, []interface{}{r.Data}, r.CausedBy)
 }
